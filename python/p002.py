@@ -10,17 +10,24 @@ find the sum of the even-valued terms.
 
 MAX = 4000000
 
-if __name__ == "__main__":
-    prev = 0
-    curr = 2
+def even_fibonacci():
+    previous = 0
+    current = 2
 
+    yield prev
+    yield curr
+
+    while True:
+        previous, current = current, current * 4 + previous
+        yield current
+
+if __name__ == "__main__":
     total = 0
 
-    while curr < MAX:
-        total += curr
+    for fib in even_fibonacci():
+        if fib >= MAX:
+            break
 
-        # even numbers in fibonacci sequence can be calculated by:
-        # next = (next * 4) + previous
-        prev, curr = curr, curr * 4 + prev
+        total += fib
 
     print(total)
