@@ -9,7 +9,7 @@ import functools
 
 FACTORS = [0, 3, 5, 6, 9, 10, 12]
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     total = 0
 
     # 990 is the last multiple of 15 below 1000

@@ -21,7 +21,7 @@ def even_fibonacci():
         previous, current = current, current * 4 + previous
         yield current
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     total = 0
 
     for fib in even_fibonacci():
