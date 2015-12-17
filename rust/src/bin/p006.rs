@@ -15,7 +15,13 @@ fn main() {
 }
 
 fn sum_square_difference(up_to: u32) -> u32 {
-    (1u32..(up_to + 1)).fold(0, |acc, e| acc + e).pow(2) - (1u32..(up_to + 1)).fold(0, |acc, e| acc + e.pow(2))
+    (1u32..(up_to + 1)).fold(0, |acc, e| acc + e).pow(2) - sum_of_squares(up_to)
+}
+
+// http://mathschallenge.net/library/number/sum_of_squares
+// "The sum of the first n squares, 12+22+...+n2 = n(n+1)(2n+1)/6."
+fn sum_of_squares(up_to: u32) -> u32 {
+    up_to * (up_to + 1) * (2 * up_to + 1) / 6
 }
 
 #[cfg(test)]

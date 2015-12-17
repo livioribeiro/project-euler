@@ -13,7 +13,12 @@ the square of the sum.
 """
 
 def sum_square_difference(up_to):
-    return (sum(range(up_to + 1)) ** 2) - (sum((i ** 2 for i in range(up_to + 1))))
+    return int((sum(range(up_to + 1)) ** 2) - sum_of_squares(up_to))
+
+# http://mathschallenge.net/library/number/sum_of_squares
+# "The sum of the first n squares, 12+22+...+n2 = n(n+1)(2n+1)/6."
+def sum_of_squares(up_to):
+    return up_to * (up_to + 1) * (2 * up_to + 1) / 6
 
 if __name__ == '__main__':
     print(sum_square_difference(100))
