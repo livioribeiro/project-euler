@@ -9,19 +9,20 @@
 
 fn main() {
     let mut break_it = false;
-    for a in 1u32..1000 {
-        for b in (a + 1)..1000 {
-            for c in (b + 1)..1000 {
-                if a.pow(2) + b.pow(2) == c.pow(2) && a + b + c == 1000 {
-                    println!("{}^2 + {}^2 == {}^2 == {} + {} == {}", a, b, c, a.pow(2), b.pow(2), c.pow(2));
-                    println!("{} + {} + {} == 1000", a, b, c);
-                    println!("{} * {} * {} == {}", a, b, c, a * b * c);
+    for n in 1u32..1000 {
+        for m in (n + 1)..1000 {
+            // https://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple
+            // Euclid's formula
+            let (b, a, c) = (m.pow(2) - n.pow(2), 2 * m * n, m.pow(2) + n.pow(2));
 
-                    break_it = true;
-                    break
-                }
-            }
-            if break_it {break}
+            if a.pow(2) + b.pow(2) == c.pow(2) && a + b + c == 1000 {
+               println!("{}^2 + {}^2 == {}^2 == {} + {} == {}", a, b, c, a.pow(2), b.pow(2), c.pow(2));
+               println!("{} + {} + {} == 1000", a, b, c);
+               println!("{} * {} * {} == {}", a, b, c, a * b * c);
+
+               break_it = true;
+               break
+           }
         }
         if break_it {break}
     }
